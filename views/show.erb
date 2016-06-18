@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head><title></title></head>
+  <body>
+    <h1><%= @usuario.nombre %></h1>
+    <table>
+	    <%@items.each do |item|%>
+	    <tr>
+	    	<td><%=item.nombre%></td>
+	    	<td><%=item.precio%></td>
+	    	<td>
+	    		 <form action="/usuarios/<%=item.id%>/borraritem" method="POST">
+  					<input type="hidden" name="_method" value="DELETE">
+  					<input type="submit" value="Borrar">
+  				</form>
+	    	</td>
+	    </tr>
+	    <%end%>	
+    </table>
+   	<form action="/usuarios/<%=@usuario.id%>/create" method="post">
+   		<input type="text" name="nombre" value="nombre">
+   		<input type="text" name="precio" value="precio">
+   		<input type="submit" value="Agregar Item">
+   	</form>
+    <form action="/usuarios/<%=@usuario.id%>" method="POST">
+  		<input type="hidden" name="_method" value="DELETE">
+  		<input type="submit" value="Borrar">
+  	</form>
+  </body>
+</html>

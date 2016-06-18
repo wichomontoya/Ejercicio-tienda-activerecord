@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      <% @usuarios.each do |usuario| %>
+      <li>
+        <a href="/usuarios/<%=usuario.id%>"><%= usuario.nombre %></a>
+        <span>
+          <a href="/usuarios/<%=usuario.id%>/edit">Editar</a>
+        </span>
+      </li>
+      <% end %>
+    </ul>
+    <a href="/usuarios/new">agregar nuevo usuario</a>
+  </body>
+</html>
