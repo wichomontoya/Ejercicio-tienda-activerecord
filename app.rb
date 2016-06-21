@@ -8,7 +8,6 @@ get '/' do
   redirect '/usuarios'
 end
 
-
 get '/usuarios' do
 	@usuarios=Usuario.all
 	erb :index
